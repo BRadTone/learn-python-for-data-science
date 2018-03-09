@@ -8,9 +8,8 @@ def parse_date(date_int):
     return datetime.datetime.strptime(str(date_int), "%Y%m%d%H%M")
 
 
-def get_df():
+def get_seoul_air_df():
     pickle_name = 'SeulAirData.pickle'
-    pd.set_option('display.width', 800)
 
     if path.isfile(pickle_name):
         return pd.read_pickle(pickle_name)
@@ -30,3 +29,15 @@ def get_df():
 
     return df
 
+
+def get_sensor_locations():
+    return False
+
+
+# todo: use all columns, handle extra commas in csv files
+def get_krakow_air_df():
+    pd.set_option('display.width', 800)
+
+    df = pd.read_csv('../air_quality_krakow_2017/april-2017.csv')
+    print(df.head())
+    print(df.tail())

@@ -1,7 +1,7 @@
-from src.data_manipulation import get_df
+from src.data_manipulation import get_seoul_air_df
 import matplotlib.pyplot as plt
 
-df = get_df()
+df = get_seoul_air_df()
 
 #
 col_1_name = 'nitrogen dioxide(ppm)'
