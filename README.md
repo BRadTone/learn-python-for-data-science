@@ -5,15 +5,13 @@ MVP version uses one sensor [location](https://www.google.pl/maps/place/50%C2%B0
 ![google maps location](images/location_screenshot.png)
 
 ---
-##### Tools used:
+#### Tools used:
 - [pandas](https://pandas.pydata.org/)
 - [matplotlib](https://matplotlib.org/)
 - [numpy](http://www.numpy.org/)
 
 
-
-
 #### Learning resources:
-- [Machine learning course by Andrew Ng](https://www.coursera.org/learn/machine-learning/home/welcome)
+- [Standford University Machine learning course by Andrew Ng](https://www.coursera.org/learn/machine-learning/home/welcome)
 - [Siraj Raval AI and data-science materials](https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A)
 - [Python tutorials by Santdex](https://www.youtube.com/channel/UCfzlCWGWYyIQ0aLC5w48gBQ)
