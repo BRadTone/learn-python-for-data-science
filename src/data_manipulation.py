@@ -38,6 +38,6 @@ def get_sensor_locations():
 def get_krakow_air_df():
     pd.set_option('display.width', 800)
 
-    df = pd.read_csv('../air_quality_krakow_2017/april-2017.csv')
+    df = pd.read_csv('../data/april-2017.csv')
     print(df.head())
     print(df.tail())
