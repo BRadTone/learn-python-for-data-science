@@ -1,8 +1,8 @@
 # Byte-compiled / optimized / DLL files
+
 __pycache__/
 *.py[cod]
 *$py.class
-
 # C extensions
 *.so
 
@@ -99,3 +99,8 @@ ENV/
 
 # mypy
 .mypy_cache/
+.idea/learn-python-for-data-science.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
