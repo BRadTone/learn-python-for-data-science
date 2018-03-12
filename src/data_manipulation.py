@@ -1,16 +1,13 @@
-import datetime
 import pandas as pd
 import pickle
 import glob
 import os
+
 pd.set_option('display.width', 8000)
 
-
-def parse_date(date_int):
-    return datetime.datetime.strptime(str(date_int), "%Y%m%d%H%M")
+debug = True
 
 
-# todo
 def get_sensor_locations():
     return False
 
@@ -18,7 +15,7 @@ def get_sensor_locations():
 def get_krakow_air_df():
     pickle_name = '../data/air_krakow.pickle'
 
-    if os.path.isfile(pickle_name):
+    if os.path.isfile(pickle_name) and not debug:
         return pd.read_pickle(pickle_name)
 
     print('creating pickle...')
@@ -43,12 +40,10 @@ def get_all_csv_df():
 
     df = pd.concat(list_)
     df.set_index('UTC time', inplace=True)
+    df.sort_index()
+    df.index = pd.to_datetime(df.index)
+    df = df.resample('D').mean()
 
-    return df.sort_index()
+    return df
 
-
-df_ = get_krakow_air_df()
-
-print(df_.head())
-print(df_.tail())
 
