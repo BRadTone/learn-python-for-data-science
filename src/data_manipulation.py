@@ -42,8 +42,8 @@ def get_all_csv_df():
     df.set_index('UTC time', inplace=True)
     df.sort_index()
     df.index = pd.to_datetime(df.index)
+    # todo: move reseaple to plotting file
     df = df.resample('D').mean()
-
     return df
 
 
