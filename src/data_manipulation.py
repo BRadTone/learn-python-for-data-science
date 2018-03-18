@@ -5,8 +5,6 @@ import os
 
 pd.set_option('display.width', 8000)
 
-debug = True
-
 
 def get_sensor_locations():
     return False
@@ -15,7 +13,8 @@ def get_sensor_locations():
 def get_krakow_air_df():
     pickle_name = '../data/air_krakow.pickle'
 
-    if os.path.isfile(pickle_name) and not debug:
+    debug_csv = False
+    if os.path.isfile(pickle_name) and not debug_csv:
         return pd.read_pickle(pickle_name)
 
     print('creating pickle...')
@@ -40,10 +39,18 @@ def get_all_csv_df():
 
     df = pd.concat(list_)
     df.set_index('UTC time', inplace=True)
-    df.sort_index()
+    df.sort_index(inplace=True)
     df.index = pd.to_datetime(df.index)
-    # todo: move reseaple to plotting file
-    df = df.resample('D').mean()
+
     return df
 
 
+def get_mean_cols(base_df):
+    column_types = ['humidity', 'pressure', 'temperature', 'pm1', 'pm10', 'pm25']
+    avg_df = pd.DataFrame(index=base_df.index)
+
+    for type_ in column_types:
+        type_all_cols = [col for col in list(base_df) if type_ in col]
+        avg_df['mean_' + type_] = base_df[type_all_cols].mean(axis=1)
+
+    return avg_df

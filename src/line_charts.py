@@ -1,21 +1,39 @@
-from src.data_manipulation import get_krakow_air_df
+import pandas as pd
+import src.data_manipulation as manipulate
 import matplotlib.pyplot as plt
 
-main_df = get_krakow_air_df()
+plt.rc('xtick', labelsize=7)
+plt.rc('ytick', labelsize=7)
 
-print(main_df.tail())
 
-#
-col_1_name = '857_pm10'
-print(main_df[col_1_name].tolist())
-# col_2_name = 'Sulfur dioxide(ppm)'
+# TODO convert to jupyter notebook
 
-range_from = 1
-range_to = 355
 
-plt.plot(main_df.index[range_from: range_to], main_df[col_1_name].tolist()[range_from:range_to], label=col_1_name)
-# plt.plot(df.index[range_from: range_to], df[col_2_name].tolist()[range_from:range_to], label=col_2_name)
+def plot():
+    main_df = manipulate.get_krakow_air_df()
+    avg_df = manipulate.get_mean_cols(main_df) \
+        .resample('D') \
+        .mean() \
+        .round(1)
 
-plt.xlabel('time')
-plt.legend()
-plt.show()
+    cols = list(avg_df)
+    cols_len = len(cols)
+    for idx, col in enumerate(cols):
+        plt.subplot(cols_len, 1, idx + 1)
+        plt.plot(avg_df.index, avg_df[col], 'b.', label=col)
+        plt.grid(True)
+        plt.legend()
+
+    plt.show()
+
+    for idx, col in enumerate(cols):
+        plt.subplot(cols_len, 1, idx + 1)
+        plt.hist(avg_df[col], label=col, alpha=.8)
+        plt.grid(True)
+        plt.legend()
+
+    plt.show()
+
+
+if __name__ == '__main__':
+    plot()
