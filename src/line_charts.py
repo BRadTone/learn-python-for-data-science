@@ -7,7 +7,8 @@ plt.rc('ytick', labelsize=7)
 
 
 # TODO convert to jupyter notebook
-
+# TODO change description in README, to all locations
+# TODO https://jsfiddle.net/gqty1fq9/ - move it as inner part of project
 
 def plot():
     main_df = manipulate.get_krakow_air_df()
