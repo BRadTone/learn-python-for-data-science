@@ -1,8 +1,8 @@
 ## Learning python for data science - using air pollution [data from Kaggle](https://www.kaggle.com/datascienceairly/air-quality-data-from-extensive-network-of-sensors) in Krakow.
 
 
-Locations of sensors [location](https://www.google.pl/maps/place/50%C2%B003'27.9%22N+19%C2%B057'41.0%22E/@50.0565663,19.9487898,14.75z/data=!4m5!3m4!1s0x0:0x0!8m2!3d50.057748!4d19.961375)
-![google maps location](images/location_screenshot.png)
+Locations of sensors
+![google maps location](images/sensor_locations.png)
 
 ---
 #### Tools used:
