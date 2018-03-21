@@ -45,12 +45,16 @@ def get_all_csv_df():
     return df
 
 
-def get_mean_cols(base_df):
+def average_over_sensors(base_df):
     column_types = ['humidity', 'pressure', 'temperature', 'pm1', 'pm10', 'pm25']
-    avg_df = pd.DataFrame(index=base_df.index)
+    _avg_df = pd.DataFrame(index=base_df.index)
 
     for type_ in column_types:
         type_all_cols = [col for col in list(base_df) if type_ in col]
-        avg_df['mean_' + type_] = base_df[type_all_cols].mean(axis=1)
+        _avg_df['mean_' + type_] = base_df[type_all_cols].mean(axis=1)
 
-    return avg_df
+    return _avg_df
+
+
+main_df = get_krakow_air_df()
+avg_df = average_over_sensors(main_df).resample('H').mean().round(1)
