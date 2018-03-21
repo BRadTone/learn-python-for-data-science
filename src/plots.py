@@ -55,5 +55,5 @@ def temp_polution_date():
     z = None
     # Plot the surface.
     # Axes3D.plot_surface(ax, x, y, z)
-
-    plt.show()
+    #
+    # plt.show()
