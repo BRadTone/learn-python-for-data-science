@@ -3,15 +3,14 @@ import pickle
 import glob
 import os
 
-pd.set_option('display.width', 8000)
-
+pd.set_option('display.width', 5000)
 
 def get_sensor_locations():
     return False
 
 
 def get_krakow_air_df():
-    pickle_name = '../data/air_krakow.pickle'
+    pickle_name = 'data/air_krakow.pickle'
 
     debug_csv = False
     if os.path.isfile(pickle_name) and not debug_csv:
@@ -29,8 +28,9 @@ def get_krakow_air_df():
 
 
 def get_all_csv_df():
-    path_ = r'../data/original_data'
+    path_ = r'data/original_data'
     all_files = glob.glob(os.path.join(path_, "*.csv"))
+    print(all_files)
     list_ = []
 
     for file in all_files:
@@ -57,4 +57,4 @@ def average_over_sensors(base_df):
 
 
 main_df = get_krakow_air_df()
-avg_df = average_over_sensors(main_df).resample('H').mean().round(1)
+avg_df = average_over_sensors(main_df).resample('4H').mean().round(1)

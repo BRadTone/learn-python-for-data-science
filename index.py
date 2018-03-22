@@ -6,4 +6,4 @@ import src.plots as plots
 
 
 if __name__ == '__main__':
-    plots.yearly_temp_to_polution()
+    plots.temp_pollution_date()

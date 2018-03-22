@@ -22,7 +22,7 @@ def yearly_polution_scattered():
     plt.show()
 
 
-def yearly_polution_histogram():
+def yearly_pollution_histogram():
     # todo: change to figure
     for idx, col in enumerate(avg_cols):
         plt.subplot(avg_cols_len, 1, idx + 1)
@@ -33,7 +33,7 @@ def yearly_polution_histogram():
     plt.show()
 
 
-def yearly_temp_to_polution():
+def yearly_temp_to_pollution():
     # todo: change to figure
     for idx, col in enumerate(avg_polution_cols):
         plt.subplot(len(avg_polution_cols), 1, idx + 1)
@@ -44,16 +44,15 @@ def yearly_temp_to_polution():
     plt.show()
 
 
-def temp_polution_date():
+def temp_pollution_date():
     # todo: tutorial - https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html#d-plots-in-3d
     fig = plt.figure()
-    ax = fig.gca(projection='3d')
+    ax = fig.add_subplot(111, projection='3d')
 
-    x = avg_df.mean_pm25
+    x = avg_df.mean_pressure
     y = avg_df.mean_temperature
-    x, y = np.meshgrid(x, y)
-    z = None
-    # Plot the surface.
-    # Axes3D.plot_surface(ax, x, y, z)
-    #
-    # plt.show()
+    z = avg_df.mean_pm25
+    c = avg_df.mean_pm25.tolist()
+
+    ax.scatter(x, y, z, s=5, c=c)
+    plt.show()
