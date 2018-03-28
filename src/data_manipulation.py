@@ -5,11 +5,13 @@ import os
 
 pd.set_option('display.width', 5000)
 
+
 def get_sensor_locations():
     return False
 
 
 def get_krakow_air_df():
+    # todo: __init__.py https://stackoverflow.com/questions/448271/what-is-init-py-for
     pickle_name = 'data/air_krakow.pickle'
 
     debug_csv = False
