@@ -59,4 +59,4 @@ def average_over_sensors(base_df):
 
 
 main_df = get_krakow_air_df()
-avg_df = average_over_sensors(main_df).resample('4H').mean().round(1)
+avg_df = average_over_sensors(main_df).resample('2H').mean().round(1)
