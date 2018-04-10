@@ -15,5 +15,5 @@ to get to know basics of data visualzation using common python tools, manipulate
 
 
 #### Example visuallizations:
-![Dotted temparature to pollution](images/temp_to_pollution.png)
 ![3D plot of temperature, pressure and pollution](images/temp_pollution_pressure.png)
+![Dotted temparature to pollution](images/temp_to_pollution.png)
